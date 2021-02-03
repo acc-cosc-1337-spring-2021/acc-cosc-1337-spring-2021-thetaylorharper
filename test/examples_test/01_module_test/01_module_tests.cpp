@@ -1,10 +1,16 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
-#include "numbers.h"
+#include "vars.h"
+#include "input.h"
 #include<string>
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
+}
+
+TEST_CASE("Verify the get total function", "should return the product of prameters"){
+	REQUIRE(get_total(5, 6) == 30);
+	REQUIRE(get_total(5, 10) == 50);
 }
 
 /*test case echo_variable */
