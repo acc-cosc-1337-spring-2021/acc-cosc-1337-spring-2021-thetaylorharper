@@ -35,3 +35,12 @@ REQUIRE(num2 == 50);
 
 }
 
+TEST_CASE("Test calculate weekly pay for salaried employees")
+{
+	REQUIRE(calculate_weekly_pay(52000) == 1000);
+}
+
+TEST_CASE("Test calculate hours pay for hourly employees")
+{
+	REQUIRE(calculate_weekly_pay(40, 40) == 1600);
+}

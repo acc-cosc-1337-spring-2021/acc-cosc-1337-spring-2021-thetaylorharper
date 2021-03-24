@@ -1,32 +1,36 @@
 #include<iostream>
 #include "value_ref.h"
 
+#include<string>
+using std::string;
+using std::cout;
+
+
 int main() 
-{
-	auto num1 = 5;
-	std::cout<<"Size of int num is "<<sizeof(num1);
-	auto num2 = 0;
+{	
+	auto letter = 'a'; //char
+	cout<<"memory used by char: "<<sizeof(letter)<<"\n";
 
-	pass_by_val_and_ref(num1, num2);
-	/*auto num = 5;//existingt int variable
-	//int& num_ref = num;
+	string name = "Joe";//create and assign value to string
+	cout<<"Memory of string on stack is: "<<&name<<"\n";
+	cout<<"Memory space used by string is: "<<sizeof(name)<<"\n";
+	cout<<"Size of name string is: "<<name.size()<<"\n";
+	cout<<"Size of name string is: "<<name.length()<<"\n";
+	cout<<"Capacity of name string is: "<<name.capacity()<<"\n";
+	
+	cout<<name[0]<<"\n";
 
-	std::cout<<"Value of num is: "<<num<<"\n";
-	std::cout<<"Address of num is: "<<&num<<"\n\n";
+	string name1 ("Hello");
+	name1.push_back(' ');
+	name1.push_back('w');
+	name1.append("orld");
 
-	int& num_ref = num;//reference variable, can only be assigned once
-	std::cout<<"Value of num is: "<<num<<"\n";
-	std::cout<<"Value of num_ref is: "<<num_ref<<"\n";
-
-	num_ref = 10;//reference variable, can only be assigned once
-	std::cout<<"Value of num is: "<<num<<"\n";
-	std::cout<<"Value of num_ref is: "<<num_ref<<"\n";
-	std::cout<<"Address of num is: "<<&num_ref<<"\n\n";
+	cout<<name1<<"\n";
 
 
-	//auto num1 = 5;
-
-	//pass_by_val_and_ref(num1); // call by value
-*/
+	string name2{'h', 'i'};
+	cout<<name2<<"\n";
+	
 	return 0;
 }
+
