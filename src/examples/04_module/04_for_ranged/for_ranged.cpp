@@ -36,13 +36,27 @@ s
 t
 */
 
-void loop_string_w_for_range(std::string str)
+// for each character in str display to screen
+    // and start new lin
+    void loop_string_w_for_range(std::string str)
 {
-    for(auto s: str)
+    for(auto& s: str)
     {
         cout<<s<<"\n";
+        s = 'z';
     }
-    // for each character in str display to screen
-    // and start new line.
+
+    cout<<str<<"\n";
+}
+void loop_string_w_for_range_ref(std::string& str)
+{
+    for(auto& s: str)
+    {
+        cout<<s<<"\n";
+        s = 'z';
+        cout<<"after assign z "<<s<<"\n";
+    }
+
+    cout<<str<<"\n";
 }
 

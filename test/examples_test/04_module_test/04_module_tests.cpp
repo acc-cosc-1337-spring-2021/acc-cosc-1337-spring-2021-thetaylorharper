@@ -2,6 +2,10 @@
 #include "catch.hpp"
 #include "while.h"
 #include "value_ref.h"
+#include "for_ranged.h"
+
+using std::string;
+
 
 
 TEST_CASE("Verify Test Configuration", "verification") {
@@ -43,4 +47,20 @@ TEST_CASE("Test calculate weekly pay for salaried employees")
 TEST_CASE("Test calculate hours pay for hourly employees")
 {
 	REQUIRE(calculate_weekly_pay(40, 40) == 1600);
+}
+
+TEST_CASE("Test string for ranged by value")
+{
+	string name = "John";
+	loop_string_w_for_range(name);
+
+	REQUIRE(name == "John");
+}
+
+TEST_CASE("Test string for ranged by reference param")
+{
+	string name = "John";
+	loop_string_w_for_range_ref(name);
+
+	REQUIRE(name == "zzzz");
 }
