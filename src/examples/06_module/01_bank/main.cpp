@@ -1,4 +1,5 @@
 #include<iostream>
+#include "atm.h"
 #include "bank_account.h"
 using std::cout;
 
@@ -6,7 +7,11 @@ int main()
 {
 	BankAccount account = get_account(100);//creates a  variable in memory
 						//create an instance of the BankAccount object
-	
+	ATM atm(account);//create an instance. Pass in an account.
+
+	atm.display_balance();
+
+	friend_display_balance(account);
 	display_balance(account);
 	cout<<"Balance: "<<account.get_balance()<<"\n";
 	

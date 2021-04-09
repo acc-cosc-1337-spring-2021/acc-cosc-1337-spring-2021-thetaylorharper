@@ -12,6 +12,15 @@ TEST_CASE("Test new bank account balance is 0")
 	REQUIRE(account.get_balance() == 0);
 }
 
+TEST_CASE("Test top static bank_balance")
+{
+	BankAccount account;
+	account.deposit(50);
+
+	REQUIRE(account.get_bank_balance() == 50);
+}
+
+
 TEST_CASE("Test new bank account with given begin balance")
 {
 	BankAccount account(100);
@@ -102,5 +111,13 @@ TEST_CASE("Test bank account withdraw with ammount greater than balance")
 
 	account.withdraw(100);
 	REQUIRE(account.get_balance() == 50);
+}
+
+TEST_CASE("Test static bank_balance")
+{
+	BankAccount account;
+	account.deposit(50);
+
+	REQUIRE(account.get_bank_balance() == 670);
 }
 
