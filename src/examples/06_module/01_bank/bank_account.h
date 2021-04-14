@@ -19,11 +19,12 @@ private:
 #include<iostream>
 class BankAccount
 {
-friend void friend_display_balance(const BankAccount& account);
+friend void friend_display_balance(const BankAccount& account);  
 friend void BranchBank::update_balance(int b);
 friend std::ostream& operator<<(std::ostream& out, const BankAccount& account);
 friend std::istream& operator>>(std::istream& in, BankAccount& account);
 friend  BankAccount operator+(const BankAccount& a1, const BankAccount a2);
+
 public://access specifier
     BankAccount() = default;//synthesized default constructor
                                     //constructor delegation
