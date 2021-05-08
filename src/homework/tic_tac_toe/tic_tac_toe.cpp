@@ -1,7 +1,7 @@
 //cpp
 #include "tic_tac_toe.h"
 #include<iostream>
-using std::cout;
+using std::cout;    using std::cin;
 using std::string;
 
 bool TicTacToe::gameover()
@@ -41,18 +41,6 @@ string TicTacToe::get_player()const
 string TicTacToe::get_winner()
 {
     return winner;
-}
-
-void TicTacToe::display_board() const
-{
-    for (std::size_t i = 0; i < pegs.size(); i++)
-    {
-      if((i + 1) % 3 == 0)
-      {
-          cout<<pegs[i]<<"\n";
-      }
-      else cout<<pegs[i]<<"|";
-    }    
 }
 
 bool TicTacToe::check_column_win()
@@ -174,6 +162,59 @@ void TicTacToe::clear_board()
     }
 }
 
+std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
+{
+    for (std::size_t i = 0; i < game.pegs.size(); i++)
+    {
+      if((i + 1) % 3 == 0)
+      {
+          out<<game.pegs[i]<<"\n";
+      }
+      else out<<game.pegs[i]<<"|";
+    }    
 
+    return out;
+}
+
+std::istream& operator>>(std::istream& in, TicTacToe& game)
+{
+    int position;
+	string x_or_o;
+    do 
+	{
+		cout<<"Please choose X or O to begin. \n";
+		in>>x_or_o;
+
+		if (x_or_o == "x")
+		{
+			x_or_o = "X";
+		}
+		else if (x_or_o == "o")
+		{
+			x_or_o = "O";
+		}
+		}while (!(x_or_o == "x" && x_or_o =="X" && x_or_o == "o" && x_or_o =="O"));
+		//loops until proper information is entered. Alters string toupper.
+
+	game.start_game(x_or_o);
+	
+	do
+	{
+		game.get_player();
+		
+		cout<<"Please choose a position between 1 and 9: \n";
+		in>>position;
+		while (position < 0 || position > 9)
+		{
+			cout<<"Invalid position. Choose between 1 and 9 \n";
+			in>>position;
+		}	
+		game.mark_board(position);
+		cout << game;	
+	}
+	while (!(game.gameover()));
+
+    return in;
+}
 
 
